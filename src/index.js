@@ -1,10 +1,10 @@
 /**
  * Build styles
  */
-import './index.css';
+import "./index.css";
 
-import { IconText } from '@codexteam/icons'
-import makeFragment from './utils/makeFragment';
+import { IconText } from "@codexteam/icons";
+import makeFragment from "./utils/makeFragment";
 
 /**
  * Base Paragraph Block for the Editor.js.
@@ -34,7 +34,7 @@ export default class Paragraph {
    * @class
    */
   static get DEFAULT_PLACEHOLDER() {
-    return '';
+    return "";
   }
 
   /**
@@ -52,7 +52,7 @@ export default class Paragraph {
 
     this._CSS = {
       block: this.api.styles.block,
-      wrapper: 'ce-paragraph',
+      wrapper: "ce-paragraph",
     };
 
     if (!this.readOnly) {
@@ -64,10 +64,13 @@ export default class Paragraph {
      *
      * @type {string}
      */
-    this._placeholder = config.placeholder ? config.placeholder : Paragraph.DEFAULT_PLACEHOLDER;
+    this._placeholder = config.placeholder
+      ? config.placeholder
+      : Paragraph.DEFAULT_PLACEHOLDER;
     this._data = data ?? {};
     this._element = null;
-    this._preserveBlank = config.preserveBlank !== undefined ? config.preserveBlank : false;
+    this._preserveBlank =
+      config.preserveBlank !== undefined ? config.preserveBlank : false;
   }
 
   /**
@@ -77,14 +80,14 @@ export default class Paragraph {
    * @param {KeyboardEvent} e - key up event
    */
   onKeyUp(e) {
-    if (e.code !== 'Backspace' && e.code !== 'Delete') {
+    if (e.code !== "Backspace" && e.code !== "Delete") {
       return;
     }
 
     const { textContent } = this._element;
 
-    if (textContent === '') {
-      this._element.innerHTML = '';
+    if (textContent === "") {
+      this._element.innerHTML = "";
     }
   }
 
@@ -95,7 +98,7 @@ export default class Paragraph {
    * @private
    */
   drawView() {
-    const div = document.createElement('DIV');
+    const div = document.createElement("DIV");
 
     div.classList.add(this._CSS.wrapper, this._CSS.block);
     div.contentEditable = false;
@@ -107,7 +110,7 @@ export default class Paragraph {
 
     if (!this.readOnly) {
       div.contentEditable = true;
-      div.addEventListener('keyup', this.onKeyUp);
+      div.addEventListener("keyup", this.onKeyUp);
     }
 
     return div;
@@ -154,7 +157,7 @@ export default class Paragraph {
    * @public
    */
   validate(savedData) {
-    if (savedData.text.trim() === '' && !this._preserveBlank) {
+    if (savedData.text.trim() === "" && !this._preserveBlank) {
       return false;
     }
 
@@ -190,7 +193,7 @@ export default class Paragraph {
      * We use requestAnimationFrame for performance purposes
      */
     window.requestAnimationFrame(() => {
-      this._element.innerHTML = this._data.text || '';
+      this._element.innerHTML = this._data.text || "";
     });
   }
 
@@ -199,8 +202,8 @@ export default class Paragraph {
    */
   static get conversionConfig() {
     return {
-      export: 'text', // to convert Paragraph to other block, use 'text' property of saved data
-      import: 'text', // to covert other block's exported string to Paragraph, fill 'text' property of tool data
+      export: "text", // to convert Paragraph to other block, use 'text' property of saved data
+      import: "text", // to covert other block's exported string to Paragraph, fill 'text' property of tool data
     };
   }
 
@@ -232,7 +235,7 @@ export default class Paragraph {
    */
   static get pasteConfig() {
     return {
-      tags: [ 'P' ],
+      tags: ["P"],
     };
   }
 
@@ -244,7 +247,7 @@ export default class Paragraph {
   static get toolbox() {
     return {
       icon: IconText,
-      title: 'Text',
+      title: "Text",
     };
   }
 }
