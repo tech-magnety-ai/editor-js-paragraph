@@ -25,6 +25,7 @@ import makeFragment from "./utils/makeFragment";
  * @typedef {object} ParagraphData
  * @description Tool's input and output data format
  * @property {string} text — Paragraph's content. Can include HTML tags: <a><b><i>
+ * @property {string | undefined} placeholder — Paragraph's placeholder.
  */
 export default class Paragraph {
   /**
@@ -106,6 +107,10 @@ export default class Paragraph {
 
     if (this._data.text) {
       div.innerHTML = this._data.text;
+    }
+
+    if (this._data.placeholder) {
+      div.dataset.placeholder = this._data.placeholder;
     }
 
     if (!this.readOnly) {
