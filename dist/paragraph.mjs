@@ -33,8 +33,8 @@ class n {
    * @param {object} params.api - editor.js api
    * @param {boolean} readOnly - read only mode flag
    */
-  constructor({ data: t, config: e, api: i, readOnly: a }) {
-    this.api = i, this.readOnly = a, this._CSS = {
+  constructor({ data: t, config: e, api: a, readOnly: i }) {
+    this.api = a, this.readOnly = i, this._CSS = {
       block: this.api.styles.block,
       wrapper: "ce-paragraph"
     }, this.readOnly || (this.onKeyUp = this.onKeyUp.bind(this)), this._placeholder = e.placeholder ? e.placeholder : n.DEFAULT_PLACEHOLDER, this._data = t ?? {}, this._element = null, this._preserveBlank = e.preserveBlank !== void 0 ? e.preserveBlank : !1;
@@ -89,8 +89,8 @@ class n {
    * @returns {boolean} false if saved data is not correct, otherwise true
    * @public
    */
-  validate(t) {
-    return !(t.text.trim() === "" && !this._preserveBlank);
+  validate() {
+    return !0;
   }
   /**
    * Extract Tool's data from the view

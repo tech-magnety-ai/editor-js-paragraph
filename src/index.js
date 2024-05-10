@@ -161,11 +161,7 @@ export default class Paragraph {
    * @returns {boolean} false if saved data is not correct, otherwise true
    * @public
    */
-  validate(savedData) {
-    if (savedData.text.trim() === "" && !this._preserveBlank) {
-      return false;
-    }
-
+  validate() {
     return true;
   }
 
