@@ -4,7 +4,7 @@
 }
 .ce-paragraph[data-placeholder]:empty:before {
   content: attr(data-placeholder);
-  color: #707684;
+  color: #8b8b9f;
   font-weight: 400;
   opacity: 0;
 }
