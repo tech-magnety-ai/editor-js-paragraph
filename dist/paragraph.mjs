@@ -101,7 +101,8 @@ class n {
    */
   save(t) {
     return {
-      text: t.innerHTML
+      text: t.innerHTML,
+      placeholder: this._data.placeholder
     };
   }
   /**

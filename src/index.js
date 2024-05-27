@@ -175,6 +175,7 @@ export default class Paragraph {
   save(toolsContent) {
     return {
       text: toolsContent.innerHTML,
+      placeholder: this._data.placeholder,
     };
   }
 
